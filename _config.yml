@@ -1,0 +1,11 @@
+# Site settings
+title: Stockflare - Pick Stocks Easily
+email: info@stockflare.com
+description: "Stockflare helps you find new ideas. Search for stock ideas and see if your portfolio's any good."
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://pages.stockflare.com"
+twitter_username: stockflare
+github_username:  stockflare
+
+# Build settings
+markdown: kramdown
