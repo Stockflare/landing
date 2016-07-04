@@ -39,7 +39,7 @@ var Loader = {
         setItem: function(key, val, expires) {
           expires = expires || new Date().getTime() + 60 * 60 * 24 * 14;
           var date = new Date(expires);
-          document.cookie = key + '=' + val + '; expires=' + date.toUTCString() + '; path=/';
+          document.cookie = key + '=' + val + '; expires=' + date.toUTCString() + '; path=/; domain=stockflare.com';
         },
 
         getItem: function(key) {
