@@ -14,7 +14,7 @@ var OnStockflareRegister = function() {
     },
     success: function(data) {
       var identity = data;
-      window.location = "http://stockflare.com/landing/" + btoa(JSON.stringify(identity));
+      window.location = "http://stockflare.com/landing?i=" + btoa(JSON.stringify(identity));
     },
     error: function(xhr) {
       if (xhr.status === 409) {
