@@ -14,6 +14,9 @@ var OnStockflareRegister = function() {
     },
     success: function(data) {
       var identity = data;
+      mixpanel.track(
+          "Landing Conversion"
+      );
       window.location = "http://stockflare.com/landing?i=" + btoa(JSON.stringify(identity));
     },
     error: function(xhr) {
@@ -33,6 +36,27 @@ $(document).ready(function(){
   $('#email-form').submit(function(event){
     event.preventDefault();
     OnStockflareRegister();
-
   });
+
+  // Hook up link tracking
+  function generate_callback(a) {
+      return function() {
+          if (a.data("href")) {
+            window.location = a.data("href");
+          }
+      };
+  }
+
+  $("a").click(function(event) {
+    event.preventDefault();
+    if (!$(this).attr('href').startsWith('#')) {
+      event.stopPropagation();
+    }
+    var cb = generate_callback($(this));
+    console.log($(this).data('event'));
+    mixpanel.track("Landing link click", { "link": $(this).data('event') }, cb);
+    setTimeout(cb, 500);
+  });
+
+
 });
