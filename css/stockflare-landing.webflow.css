@@ -367,10 +367,14 @@
 }
 
 .block-register-p.block-register-terms {
-  margin-top: 40px;
+  margin-top: 0px;
   margin-bottom: 0px;
   font-size: 12px;
   line-height: 20px;
+}
+
+.block-register-p.block-register-terms a {
+  color: hsla(0, 0%, 100%, .68);
 }
 
 .form-field {
