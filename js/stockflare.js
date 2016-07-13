@@ -14,10 +14,11 @@ var OnStockflareRegister = function() {
     },
     success: function(data) {
       var identity = data;
-      mixpanel.track(
-          "Landing Conversion"
-      );
-      window.location = "http://stockflare.com/landing?i=" + btoa(JSON.stringify(identity));
+      mixpanel.track("Landing Conversion", {}, function(){
+        mixpanel.track("User Registration Successful", {}, function(){
+          window.location = "http://stockflare.com/landing?i=" + btoa(JSON.stringify(identity));
+        });
+      });
     },
     error: function(xhr) {
       if (xhr.status === 409) {
