@@ -518,6 +518,11 @@
   background-color: #257900;
 }
 
+.big-right-padding
+{
+  padding-right:60px;
+}
+
 html.w-mod-js *[data-ix="rotate-radar"] {
   -webkit-transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
@@ -529,6 +534,12 @@ html.w-mod-js *[data-ix="rotate-radar"] {
     padding-right: 10px;
     padding-left: 10px;
   }
+
+  .big-right-padding
+  {
+    padding-right:0px;
+  }
+
   .block-content {
     padding: 130px 50px;
   }
