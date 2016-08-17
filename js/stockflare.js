@@ -1,13 +1,20 @@
 var OnStockflareRegister = function() {
   var username = $('#email_address');
   var password = $('#password');
+
+  var referral_code = 'NA';
+  if (Cookies.get('stockflare_gift_refer')) {
+    referral_code = Cookies.get('stockflare_gift_refer');
+  }
+  
   $.ajax({
     url: 'https://api.stockflare.com/users/register',
     type: 'POST',
     context: this,
     data: {
       username: username.val(),
-      password: password.val()
+      password: password.val(),
+      referral_code: referral_code
     },
     complete: function(){
       password.val('');
@@ -59,5 +66,8 @@ $(document).ready(function(){
     setTimeout(cb, 500);
   });
 
+  if ($.url('?refer')) {
+    Cookies.set('stockflare_gift_refer', $.url('?refer'), { expires: 1 });
+  }
 
 });
